@@ -1,3 +1,3 @@
-import Dict from './build/dict';
+const Dict = require('./build/dict')
 
-export default Dict
+exports.Dict = Dict
