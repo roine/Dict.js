@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest",
-    "postinstall": "babel ./lib/dict.js --out-file ./build/dict.js"
+    "prepublish": "babel ./lib/dict.js --out-file ./build/dict.js"
   },
   "author": "",
   "license": "ISC",
