@@ -3,4 +3,16 @@
 # Dict.js
 
 ## Introduction
-When you have an array of identically structured objects (a collection) you might want to 
+Inspired by [Elm][elm] `Dict`, Dict.js simplifies the access and manipulation to array of objects. Dict.js does not mutate the collection instead it
+returns a new collection.
+
+## Installation
+```bash
+npm install @roine/dict --save
+```
+## Docs
+
+[The documentation can be found here][doc]
+
+[elm]: http://elm-lang.org/
+[doc]: DOCUMENTATION.md
