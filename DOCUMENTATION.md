@@ -21,13 +21,12 @@
     -   [remove][17]
         -   [Parameters][18]
         -   [Examples][19]
-    -   [toArray][20]
 
 ## KeyType
 
 The type of the key.
 
-Type: ([string][21] \| [number][22])
+Type: ([string][20] \| [number][21])
 
 ## DictItemType
 
@@ -39,14 +38,13 @@ Type: {}
 
 The type of the dictionary.
 
-Type: [Array][23]&lt;[DictItemType][24]>
+Type: [Array][22]&lt;[DictItemType][23]>
 
 ## Dict
 
 ### Parameters
 
--   `arr` **[DictType][25]** 
--   `key` **[KeyType][26]?** 
+-   `key` **[KeyType][24]?** 
 
 ### key
 
@@ -62,15 +60,16 @@ Insert object into a dictionary. Replaces value when there is a collision.
 
 #### Parameters
 
--   `newVal` **[DictItemType][24]** 
+-   `newVal` **[DictItemType][23]** 
+-   `arr` **[DictType][25]** 
 
 #### Examples
 
 ```javascript
-let dict = new Dict([{id: 1, name: 'jon'}])
-dict.insert({id: 2, name: 'sophie'})
+let dict = new Dict()
+dict.insert({id: 2, name: 'sophie'}, [{id: 1, name: 'jon'}])
 // => [{id: 1, name: 'jon'}, {id: 2, name: 'sophie'}]
-dict.insert({id: 1, name: 'sophie'})
+dict.insert({id: 1, name: 'sophie'}, [{id: 1, name: 'jon'}])
 // => [{id: 1, name: 'sophie'}]
 ```
 
@@ -82,13 +81,14 @@ Update the object in the dictionary for a specific key with a given function.
 
 #### Parameters
 
--   `id` **[KeyType][26]** 
--   `fn` **function ([DictItemType][24]?): [DictItemType][24]?** 
+-   `id` **[KeyType][24]** 
+-   `fn` **function ([DictItemType][23]?): [DictItemType][23]?** 
+-   `arr` **[DictType][25]** 
 
 #### Examples
 
 ```javascript
-let dict = new Dict([{id: 1, name: 'jon'}])
+let dict = new Dict()
 dict.update(1, (item) => {
    if (item) {
      return {...item, name: 'sophie'}
@@ -96,7 +96,7 @@ dict.update(1, (item) => {
    else {
      return item
    }
- })
+ }, [{id: 1, name: 'jon'}])
 // => [{id: 1, name: 'sophie'}]
 ```
 
@@ -109,17 +109,18 @@ This is useful when you are not sure if a key will be in the dictionary.
 
 #### Parameters
 
--   `id` **[KeyType][26]** 
+-   `id` **[KeyType][24]** 
+-   `arr` **[DictType][25]** 
 
 #### Examples
 
 ```javascript
-const dict = new Dict([{id: 1, name: 'jon'}])
-dict.get(1)
+const dict = new Dict()
+dict.get(1, [{id: 1, name: 'jon'}])
 // {id: 1, name: 'jon'}
 ```
 
-Returns **[DictItemType][24]?** 
+Returns **[DictItemType][23]?** 
 
 ### remove
 
@@ -128,21 +129,16 @@ If the key is not found, no changes are made.
 
 #### Parameters
 
--   `id` **[KeyType][26]** 
+-   `id` **[KeyType][24]** 
+-   `arr` **[DictType][25]** 
 
 #### Examples
 
 ```javascript
-const dict = new Dict([{id: 1, name: 'jon'}])
-dict.remove(1)
+const dict = new Dict()
+dict.remove(1, [{id: 1, name: 'jon'}])
 // []
 ```
-
-Returns **[DictType][25]** 
-
-### toArray
-
-Access the array
 
 Returns **[DictType][25]** 
 
@@ -184,16 +180,14 @@ Returns **[DictType][25]**
 
 [19]: #examples-3
 
-[20]: #toarray
+[20]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[21]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[22]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[23]: #dictitemtype
 
-[24]: #dictitemtype
+[24]: #keytype
 
 [25]: #dicttype
-
-[26]: #keytype
