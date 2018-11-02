@@ -1,3 +1,3 @@
-import Dict from './lib/dict'
+import Dict from './build/dict';
 
 export default Dict

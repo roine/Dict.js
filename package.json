@@ -1,17 +1,22 @@
 {
-  "name": "dict",
+  "name": "@roine/dict",
   "version": "1.0.0",
   "description": "A Dict data structure for JS",
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "jest",
-    "build": "babel"
+    "postinstall": "babel ./lib/dict.js --out-file ./build/dict.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
