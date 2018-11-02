@@ -12,7 +12,7 @@ npm install @roine/dict --save
 ```
 ## Docs
 
-[The documentation can be found here][doc]
+For more information, check [the documentation][doc].
 
 [elm]: http://elm-lang.org/
 [doc]: DOCUMENTATION.md
