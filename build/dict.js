@@ -21,66 +21,134 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+/**
+ * The type of the key.
+ */
+
+/**
+ * The type of dictionary's entries.
+ */
+
+/**
+ * The type of the dictionary.
+ */
+
+/**
+ * @class
+ * @classdesc The Dict class
+ */
 var Dict =
 /*#__PURE__*/
 function () {
-  function Dict(arr, key) {
+  /**
+   * The key to access the dictionary
+   */
+
+  /**
+   * The array used as a dictionary
+   */
+
+  /**
+   *
+   */
+  function Dict(key) {
     _classCallCheck(this, Dict);
 
     _defineProperty(this, "key", 'id');
 
     _defineProperty(this, "arr", []);
 
-    this.arr = arr;
-
     if (key) {
       this.key = key;
     }
   }
+  /**
+   * Insert object into a dictionary. Replaces value when there is a collision.
+   *
+   * @example
+   * let dict = new Dict()
+   * dict.insert({id: 2, name: 'sophie'}, [{id: 1, name: 'jon'}])
+   * // => [{id: 1, name: 'jon'}, {id: 2, name: 'sophie'}]
+   * dict.insert({id: 1, name: 'sophie'}, [{id: 1, name: 'jon'}])
+   * // => [{id: 1, name: 'sophie'}]
+   *
+   */
+
 
   _createClass(Dict, [{
     key: "insert",
-    value: function insert(newVal) {
+    value: function insert(newVal, arr) {
       if (!newVal[this.key]) {
-        return this.arr;
+        return arr;
       }
 
-      var newArr = this.remove(newVal[this.key]);
+      var newArr = this.remove(newVal[this.key], arr);
       return _toConsumableArray(newArr).concat([newVal]);
     }
+    /**
+     * Update the object in the dictionary for a specific key with a given function.
+     *
+     * @example
+     * let dict = new Dict()
+     * dict.update(1, (item) => {
+     *    if (item) {
+     *      return {...item, name: 'sophie'}
+     *    }
+     *    else {
+     *      return item
+     *    }
+     *  }, [{id: 1, name: 'jon'}])
+     * // => [{id: 1, name: 'sophie'}]
+     */
+
   }, {
     key: "update",
-    value: function update(id, fn) {
-      var shouldUpdate = fn(this.get(id));
+    value: function update(id, fn, arr) {
+      var shouldUpdate = fn(this.get(id, arr));
 
       if (shouldUpdate) {
-        return this.insert(shouldUpdate);
+        return this.insert(shouldUpdate, arr);
       } else {
-        return this.arr;
+        return arr;
       }
     }
+    /**
+     * Get the object associated with a key. If the key is not found, return undefined.
+     * This is useful when you are not sure if a key will be in the dictionary.
+     *
+     * @example
+     * const dict = new Dict()
+     * dict.get(1, [{id: 1, name: 'jon'}])
+     * // {id: 1, name: 'jon'}
+     */
+
   }, {
     key: "get",
-    value: function get(id) {
+    value: function get(id, arr) {
       var _this = this;
 
-      return this.arr.find(function (item) {
+      return arr.find(function (item) {
         return item[_this.key] === id;
       });
     }
+    /**
+     * Remove an object from a dictionary.
+     * If the key is not found, no changes are made.
+     *
+     * @example
+     * const dict = new Dict()
+     * dict.remove(1, [{id: 1, name: 'jon'}])
+     * // []
+     */
+
   }, {
     key: "remove",
-    value: function remove(id) {
+    value: function remove(id, arr) {
       var _this2 = this;
 
-      return this.arr.filter(function (item) {
+      return arr.filter(function (item) {
         return item[_this2.key] !== id;
       });
-    }
-  }, {
-    key: "toArray",
-    value: function toArray() {
-      return this.arr;
     }
   }]);
 
