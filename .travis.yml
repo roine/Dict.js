@@ -1,4 +1,4 @@
 language: node_js
-before_script:
-  npm install
-script: npm test
+node_js:
+  - stable
+cache: npm
