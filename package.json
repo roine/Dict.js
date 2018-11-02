@@ -1,0 +1,23 @@
+{
+  "name": "dict",
+  "version": "1.0.0",
+  "description": "A Dict data structure for JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "babel"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1"
+  },
+  "dependencies": {}
+}
