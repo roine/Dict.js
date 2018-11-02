@@ -34,29 +34,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  */
 
 /**
- * @class
- * @classdesc The Dict class
+ * If you need to set another key than `id` use the constructor you can
+ * instanciate the Dict like that `new Dict('uid')`.
+ *
+ * @example
+ * const dict = new Dict('name')
+ * dict.get('jon', [{id: 1, name: 'jon'}, {id: 2, name: 'sophie'}])
+ * // {id: 1, name: 'jon'}
  */
 var Dict =
 /*#__PURE__*/
 function () {
-  /**
-   * The key to access the dictionary
-   */
-
-  /**
-   * The array used as a dictionary
-   */
-
-  /**
-   *
-   */
   function Dict(key) {
     _classCallCheck(this, Dict);
 
     _defineProperty(this, "key", 'id');
-
-    _defineProperty(this, "arr", []);
 
     if (key) {
       this.key = key;
