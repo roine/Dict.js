@@ -6,13 +6,15 @@
 Inspired by [Elm][elm] `Dict`, Dict.js simplifies the access and manipulation to array of objects. Dict.js does not mutate the collection instead it
 returns a new collection.
 
+
 ## Installation
 ```bash
 npm install @roine/dict --save
 ```
-## Docs
+## Usage
 
 For more information, check [the documentation][doc].
+
 
 [elm]: http://elm-lang.org/
 [doc]: DOCUMENTATION.md
