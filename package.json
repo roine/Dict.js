@@ -1,6 +1,6 @@
 {
   "name": "@roine/dict",
-  "version": "2.0.2",
+  "version": "2.0.4",
   "description": "A Dict data structure for JS",
   "main": "index.js",
   "publishConfig": {
@@ -8,7 +8,6 @@
   },
   "scripts": {
     "test": "jest",
-    "prepublish": "babel ./lib/dict.js --out-file ./build/dict.js",
     "doc": "documentation build ./lib/dict.js -f md > DOCUMENTATION.md",
     "serve-doc": "documentation serve --watch ./lib/dict.js"
   },

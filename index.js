@@ -1,3 +1,3 @@
-const Dict = require('./build/dict')
+const Dict = require('./lib/dict')
 
-exports.Dict = Dict
+module.exports = Dict
